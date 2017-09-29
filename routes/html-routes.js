@@ -9,9 +9,6 @@ module.exports = function(app) {
     app.get("/admin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/DashboardViews/pages/AdminView.html"));
   });
-  app.get("/dashboard", api.isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
-  });
   app.get("/login", function(req,res){
   	res.sendFile(path.join(__dirname, "../public/login.html"))
   })
