@@ -8,6 +8,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var passport = require('passport');
 var setupPassport = require('./routes/setupPassport');
+var session = require('express-session');
 
 
 // Sets up the Express App
@@ -26,12 +27,18 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("public"));
 
+app.use(session({
+  secret: 'secrettexthere',
+  saveUninitialized: true,
+  resave: true,
+
+}));
+
+setupPassport(app);
 
 // app.use(express.static("assets"));
 app.use(passport.initialize());
 app.use(passport.session());
-
-setupPassport(app);
 
 require("./routes/api-routes.js")(app);
 require("./routes/leads-api.js")(app);

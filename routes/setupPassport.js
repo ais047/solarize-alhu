@@ -19,6 +19,7 @@ module.exports = function(app) {
           return done(null, false, { message: 'Incorrect credentials.' })
         }
         
+        console.log("hashing")
         var hashedPassword = bcrypt.hashSync(password, user.salt)
         
         if (user.user_password === hashedPassword) {

@@ -9,7 +9,7 @@ module.exports = function(app) {
     app.get("/admin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/DashboardViews/pages/AdminView.html"));
   });
-<<<<<<< HEAD
+
   app.get("/login", function(req,res){
   	res.sendFile(path.join(__dirname, "../public/login.html"))
   })
@@ -20,14 +20,10 @@ module.exports = function(app) {
   	res.sendFile(path.join(__dirname, "../public/table.html"))
   })
 
-=======
-  app.get("/dashboard", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/dashboard.html"));
-  });
   app.get("/leadinfo", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/leadinfo.html"));
   });
->>>>>>> 149a40503bc10dc6796b2c63414ee4b7266a354b
+
 
 }
 
