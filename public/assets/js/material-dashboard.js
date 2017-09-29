@@ -57,6 +57,13 @@ $(document).ready(function() {
 
     md.initSidebarsCheck();
 
+    $("#usernameholder").text(req.user.username);
+
+    console.log("____________________________________________")
+    console.log(req.user);
+    console.log(req.user.username);
+    console.log(document.user.username)
+
     // check if there is an image set for the sidebar's background
     md.checkSidebarImage();
 
