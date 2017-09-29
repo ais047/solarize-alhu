@@ -3,6 +3,9 @@ var path = require('path');
 // const signupController = require('./create_new_User.js');
 const passport = require('passport');
 const setupPassport = require('./setupPassport.js');
+const twiliovoice = require('./contactmethods/twiliovoice.js');
+const twiliosms = require('./contactmethods/twiliosms.js');
+const sendgrid = require('./contactmethods/sendgrid.js')
 
 
 module.exports = function(app) {
@@ -32,8 +35,19 @@ module.exports = function(app) {
   app.get('/logout', function(req,res){
     req.logout();
     res.redirect('/');
-  })
+  });
 
+  app.post('/contact/twiliosms', function(req,res){
+    twiliosms(req.body.phone, "You have been contacted via Solarize");
+  });
+
+  app.post('./contact/twiliovoice', function(req,res){
+    twiliovoice(req.body.phone);
+  });
+
+  app.post('./contact/email', function(req,res){
+    sendgrid(req.body.email, "From Solarize", "You have been contacted via Solarize");
+  });
 
 
 
