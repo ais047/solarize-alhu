@@ -41,15 +41,16 @@ module.exports = function(app) {
     res.redirect('/');
   });
 
-  app.post('/contact/twiliosms', function(req,res){
+  app.post('/contact/twiliosms', function(req, res){
     twiliosms(req.body.phone, "You have been contacted via Solarize");
   });
+
 
   app.post('./contact/twiliovoice', function(req,res){
     twiliovoice(req.body.phone);
   });
 
-  app.post('./contact/email', function(req,res){
+  app.post('/contact/email', function(req,res){
     sendgrid(req.body.email, "From Solarize", "You have been contacted via Solarize");
   });
 
